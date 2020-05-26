@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>csv_upload</title>
+</head>
+<body>
+<header>
+<h1>CSV-UPLOAD PAGE</h1>
+	</header>
+<hr>
+{% if messages %}
+	{% for message in messages %}
+	<div>
+		<strong>{{message|safe}}</strong>
+	</div>
+	{% endfor %}
+{% else %}
+<h3>{{order}}</h3>
+
+
+<form action="" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	<label>upload a file</label>
+	<input type="file" name="file" id="file">
+	<p>Note: Only excepts csv file</p>
+	<button type="submit">Upload</button>
+</form>
+{{update}}
+
+
+{% endif %}
+</body>
+</html>
